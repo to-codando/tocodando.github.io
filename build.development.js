@@ -36,12 +36,12 @@ const runBuild = async () => {
       }),
       copy({
         source: ["./src/index.html"],
-        target: "./dist",
+        target: "./docs",
         copyWithFolder: false, // will copy "images" folder with all files inside
       }),
       copy({
         source: ["./src/assets"],
-        target: "./dist",
+        target: "./docs",
         copyWithFolder: true, // will copy "images" folder with all files inside
       }),
     ],
@@ -54,7 +54,7 @@ const runBuild = async () => {
     write: true,
     entryPoints: ["src/main.ts", "src/assets/styles/main.css", ...testFiles, ...components, ...mock],
     tsconfig: "./tsconfig.spec.json",
-    outdir: "./dist",
+    outdir: "./docs",
     external: ["http", "canvas", "global-jsdom", "global-jsdom/register"],
     treeShaking: true,
     sourcemap: true,
@@ -74,7 +74,7 @@ const runBuild = async () => {
 
     const { port } = await ctx.serve({
       port: 8080,
-      servedir: "./dist",
+      servedir: "./docs",
     });
 
     ctx.watch();

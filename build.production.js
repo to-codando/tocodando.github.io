@@ -24,12 +24,12 @@ const runBuild = async () => {
     }),
     copy({
       source: ["./src/index.html"],
-      target: "./dist",
+      target: "./docs",
       copyWithFolder: false,
     }),
     copy({
       source: ["./src/assets"],
-      target: "./dist",
+      target: "./docs",
       copyWithFolder: true,
     }),
   ];
@@ -45,7 +45,7 @@ const runBuild = async () => {
     write: true,
     entryPoints: ["src/main.ts", "src/assets/styles/main.css"],
     tsconfig: "./tsconfig.json",
-    outdir: "./dist",
+    outdir: "./docs",
     keepNames: true,
     treeShaking: !isDevMode,
     sourcemap: isDevMode,
